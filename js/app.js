@@ -118,8 +118,16 @@ async function fetchGiftSuggestions() {
 }
 
 /* ================= UI HELPERS ================= */
+function markdownToHTML(text) {
+  return text.replace(
+    /\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+  );
+}
+
+
 function addBot(message) {
-  chatBox.innerHTML += `<div class="bot">${message}</div>`;
+  chatBox.innerHTML += `<div class="bot">${markdownToHTML(message)}</div>`;
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 

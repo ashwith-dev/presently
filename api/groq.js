@@ -35,8 +35,8 @@ TASK:
 Suggest exactly 15 thoughtful gift ideas.
 
 FORMAT:
-1. Gift Name – short reason
-   Amazon Product link
+1. Gift Name – short reason  
+   [View on Amazon](https://www.amazon.in/s?k=Brand+Model+Product)
 
 RULES:
 - Give with the product links
@@ -55,6 +55,8 @@ RULES:
 - NEVER guess product IDs or use /dp/ links
 - ALWAYS use Amazon SEARCH links in this format:
   https://www.amazon.in/s?k=Brand+Model+Product
+- Do NOT add any intro or conclusion text
+- NEVER guess product IDs or use /dp/ links  
 `;
 
     const openaiRes = await fetch(
