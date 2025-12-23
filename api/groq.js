@@ -40,9 +40,13 @@ FORMAT:
    Flipkart Search: https://www.flipkart.com/search?q=<search-term>
 
 RULES:
-- Indian products only
+- Give with the product links
 - Respect budget
 - Use simple search terms
+- Avoid duplicates
+- Avoid generic items like 'Gift Card' or 'Cash'
+- Analyse user details for personalized suggestions
+- Analyse in general world and give the best suggestions
 `;
 
     const openaiRes = await fetch(
