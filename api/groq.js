@@ -36,8 +36,7 @@ Suggest exactly 15 thoughtful gift ideas.
 
 FORMAT:
 1. Gift Name – short reason
-   Amazon link
-   Flipkart link
+   Product link
 
 RULES:
 - Give with the product links
