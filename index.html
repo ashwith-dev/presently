@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Presently | Sign In</title>
+  <title>Presently | Login</title>
 
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../css/style.css" />
 
-  <!-- Firebase SDKs -->
+  <!-- Firebase Compat SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
@@ -14,47 +15,86 @@
 
 <body class="auth-body">
 
-  <!-- 🔑 IMPORTANT: container class REQUIRED -->
-  <div class="container auth-card">
-
-    <h1 class="brand">🎁 Presently</h1>
-    <p class="subtitle">Thoughtful gifting, made effortless</p>
+  <div class="container">
 
     <!-- ================= LOGIN ================= -->
     <div class="form-box login">
-      <input id="li-email" type="email" placeholder="Email" />
-      <input id="li-password" type="password" placeholder="Password" />
+      <h2>Welcome Back 👋</h2>
 
-      <button onclick="gwLogin()">Sign in</button>
-      <button class="google-btn" onclick="gwGoogleLogin(this)">
+      <input
+        id="li-email"
+        type="email"
+        placeholder="Email"
+        autocomplete="email"
+      />
+
+      <input
+        id="li-password"
+        type="password"
+        placeholder="Password"
+        autocomplete="current-password"
+      />
+
+      <button onclick="gwLogin()">Login</button>
+
+      <button
+        id="googleLoginBtn"
+        class="google-btn"
+        onclick="gwGoogleLogin(this)"
+      >
         Continue with Google
       </button>
 
       <p class="switch">
-        New here?
-        <a href="#" class="SignUpLink">Create an account</a>
+        Don’t have an account?
+        <a href="#" class="SignUpLink">Create one</a>
       </p>
     </div>
 
     <!-- ================= SIGN UP ================= -->
-    < class="form-box register">
-      <input id="su-username" type="text" placeholder="Username" />
-      <input id="su-email" type="email" placeholder="Email" />
-      <input id="su-password" type="password" placeholder="Password" />
+    <div class="form-box register">
+      <h2>Create Account 🎁</h2>
 
-      <button onclick="gwSignup()">Create account</button>
-      <button class="google-btn" onclick="gwGoogleLogin(this)">
+      <input
+        id="su-username"
+        type="text"
+        placeholder="Username"
+        autocomplete="username"
+      />
+
+      <input
+        id="su-email"
+        type="email"
+        placeholder="Email"
+        autocomplete="email"
+      />
+
+      <input
+        id="su-password"
+        type="password"
+        placeholder="Password"
+        autocomplete="new-password"
+      />
+
+      <button onclick="gwSignup()">Create Account</button>
+
+      <button
+        id="googleSignUpBtn"
+        class="google-btn"
+        onclick="gwGoogleLogin(this)"
+      >
         Sign up with Google
       </button>
 
       <p class="switch">
-        Already a member?
+        Already have an account?
         <a href="#" class="SignInLink">Sign in</a>
       </p>
     </div>
 
   </div>
 
-  <script src="js/auth.js"></script>
+  <!-- Auth Logic -->
+  <script src="../js/auth.js"></script>
 </body>
 </html>
