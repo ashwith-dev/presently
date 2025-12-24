@@ -40,7 +40,8 @@ FORMAT:
 
 RULES:
 - Give with the product links
-- Respect budget
+- Give only the products which are under the given budget
+- Under the link give 2 best brand and product name suggestion
 - Use simple search terms
 - Avoid duplicates
 - Avoid generic items like 'Gift Card' or 'Cash'
