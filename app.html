@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GiftWhisperer</title>
+  <title>Presently</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body class="chat-body">
 
-  <div class="chat-container">
-    <div class="chat-header">🎁 GiftWhisperer</div>
-    <div id="chat" class="chat-box"></div>
+  <div class="chat-shell">
+    <header class="chat-top">
+      <span class="logo">🎁 Presently</span>
+      <span class="tagline">Thoughtful gifting, made effortless</span>
+    </header>
 
-    <div class="chat-input">
-      <input id="userInput" placeholder="Type your answer..." />
+    <main id="chat" class="chat-stream"></main>
+
+    <footer class="chat-composer">
+      <input id="userInput" placeholder="Type your answer…" />
       <button onclick="handleUserInput()">Send</button>
-    </div>
+    </footer>
   </div>
 
   <script type="module" src="js/app.js"></script>

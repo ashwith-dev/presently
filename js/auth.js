@@ -22,12 +22,12 @@ if (container && signUpLink && signInLink) {
    ⚠️ DO NOT COMMIT REAL KEYS
 ========================================================= */
 const firebaseConfig = {
-  apiKey: "AIzaSyC_VoFZRv7zY-dU-pSslcJoSAGregT-F0Y",
-  authDomain: "giftgenie-8f775.firebaseapp.com",
-  projectId: "giftgenie-8f775",
-  storageBucket: "giftgenie-8f775.firebasestorage.app",
-  messagingSenderId: "1078768120288",
-  appId: "1:1078768120288:web:39a60e9a2d7da0f21ebb85",
+  apiKey: "AIzaSyC-AXGlzlduk4x0VLSR6-kf7v1D1P0zdQc",
+  authDomain: "presently-dc0f5.firebaseapp.com",
+  projectId: "presently-dc0f5",
+  storageBucket: "presently-dc0f5.firebasestorage.app",
+  messagingSenderId: "641158943378",
+  appId: "1:641158943378:web:1d344c67393dfbe6998c4b",
 };
 
 firebase.initializeApp(firebaseConfig);

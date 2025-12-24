@@ -20,7 +20,7 @@ const giftData = {};
 
 /* ================= INIT ================= */
 addBot(
-  "Hi 👋 I’m <b>GiftWhisperer</b> 🎁<br><br>" +
+  "Hi 👋 I’m <b>Presently</b> 🎁<br><br>" +
   "I’ll help you find the perfect gift.<br><br>" +
   "<b>Step 1:</b> What is the recipient’s gender?<br>" +
   "(Male / Female / Other)"
@@ -90,7 +90,7 @@ window.handleUserInput = async () => {
 /* ================= GROQ PROXY CALL ================= */
 async function fetchGiftSuggestions() {
   try {
-    const res = await fetch("/api/groq", {
+    const res = await fetch("/api/openai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
