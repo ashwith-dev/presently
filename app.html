@@ -72,19 +72,6 @@
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 
-  <script>
-    firebase.initializeApp({
-      apiKey: "AIzaSyC-AXGlzlduk4x0VLSR6-kf7v1D1P0zdQc",
-      authDomain: "presently-dc0f5.firebaseapp.com",
-      projectId: "presently-dc0f5",
-    });
-
-   firebase.auth().onAuthStateChanged((user) => {
-     if (!user) {
-       window.location.replace("/index.html");
-     }
-   });
-</script>
-
+  
 </body>
 </html>
