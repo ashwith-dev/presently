@@ -170,28 +170,3 @@ body {
   box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);
 }
 
-
-.auth-card {
-  width: 420px;
-  padding: 40px;
-  border-radius: 18px;
-  background: rgba(22, 27, 34, 0.9);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-}
-
-.auth-brand {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.auth-brand img {
-  width: 180px;
-  margin-bottom: 8px;
-}
-
-.primary-btn {
-  background: linear-gradient(135deg, #7c6bff, #b58cff);
-  border-radius: 12px;
-  font-weight: 600;
-}
