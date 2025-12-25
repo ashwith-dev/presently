@@ -44,18 +44,5 @@
   </div>
 
   <script src="/js/auth.js"></script>
-  
-  <script>
-    // Check if user is already logged in - only redirect once
-    let redirectChecked = false;
-    
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      if (!redirectChecked && user) {
-        redirectChecked = true;
-        unsubscribe(); // Stop listening
-        window.location.replace("/app.html");
-      }
-    });
-  </script>
 </body>
 </html>
