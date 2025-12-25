@@ -31,7 +31,10 @@ const firebaseConfig = {
   appId: "1:641158943378:web:1d344c67393dfbe6998c4b",
 };
 
-firebase.initializeApp(firebaseConfig);
+// Initialize only if not already initialized
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 const auth = firebase.auth();
 const db = firebase.firestore();
@@ -61,8 +64,6 @@ async function upsertUserDoc(user) {
   }
 }
 
-// REMOVED: saveUserToLocal - no longer needed with Firebase auth persistence
-
 /* =========================================================
    GOOGLE SIGN-IN
 ========================================================= */
@@ -70,10 +71,13 @@ async function signInWithGoogle() {
   try {
     const res = await auth.signInWithPopup(provider);
     await upsertUserDoc(res.user);
-    // Firebase handles auth state automatically
-    window.location.href = "/app.html";
+    
+    // Use replace instead of href to prevent back button issues
+    window.location.replace("/app.html");
   } catch (err) {
-    alert(err.message);
+    if (err.code !== 'auth/popup-closed-by-user') {
+      alert(err.message);
+    }
   }
 }
 
@@ -81,7 +85,12 @@ async function signInWithGoogle() {
    EMAIL SIGNUP
 ========================================================= */
 async function emailSignup() {
+  const btn = event.target;
+  
   try {
+    btn.disabled = true;
+    btn.textContent = "Creating account...";
+    
     const username = document.getElementById("su-username").value.trim();
     const email = document.getElementById("su-email").value.trim();
     const password = document.getElementById("su-password").value;
@@ -93,12 +102,14 @@ async function emailSignup() {
 
     const res = await auth.createUserWithEmailAndPassword(email, password);
     await res.user.updateProfile({ displayName: username });
-
     await upsertUserDoc(res.user);
-    // Firebase handles auth state automatically
-    window.location.href = "/app.html";
+    
+    // Use replace instead of href to prevent back button issues
+    window.location.replace("/app.html");
   } catch (err) {
     alert(err.message);
+    btn.disabled = false;
+    btn.textContent = "Create account";
   }
 }
 
@@ -106,7 +117,12 @@ async function emailSignup() {
    EMAIL LOGIN
 ========================================================= */
 async function emailLogin() {
+  const btn = event.target;
+  
   try {
+    btn.disabled = true;
+    btn.textContent = "Signing in...";
+    
     const email = document.getElementById("li-email").value.trim();
     const password = document.getElementById("li-password").value;
 
@@ -117,10 +133,13 @@ async function emailLogin() {
 
     const res = await auth.signInWithEmailAndPassword(email, password);
     await upsertUserDoc(res.user);
-    // Firebase handles auth state automatically
-    window.location.href = "/app.html";
+    
+    // Use replace instead of href to prevent back button issues
+    window.location.replace("/app.html");
   } catch (err) {
     alert(err.message);
+    btn.disabled = false;
+    btn.textContent = "Sign in";
   }
 }
 
