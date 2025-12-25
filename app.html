@@ -4,46 +4,41 @@
   <meta charset="UTF-8" />
   <title>Presently</title>
   <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="chat-body">
 
-  <div class="app-shell">
+  <div class="chat-shell">
 
     <!-- LEFT PANEL -->
-    <aside class="side-panel">
-      <div class="brand-box">
-        <div class="brand-logo">
-          <img src="assets/logo-presently.png" alt="Presently logo" />
-       </div>
+    <aside class="sidebar">
+      <img src="logo_presently.png" alt="Presently Logo" />
 
-        <p class="brand-desc">
-          Presently is an AI-powered gifting assistant designed to help you choose
-          thoughtful gifts with confidence. By understanding your needs, budget,
-          and relationship, it delivers curated gift ideas—so gifting feels
-          intentional, not stressful.
-        </p>
-      </div>
+      <p>
+        Presently is an AI-powered gifting assistant designed to help you
+        choose thoughtful gifts with confidence.
+      </p>
 
-      <div class="rules-box">
-        <h4>What to keep in mind</h4>
+      <div class="rules">
+        <h3>What to keep in mind</h3>
         <ul>
-          <li>Enter clear and honest details for the best recommendations</li>
-          <li>Suggestions are budget-aware, prices may vary by store</li>
-          <li>Product links are for discovery, not guaranteed availability</li>
-          <li>AI assists your decision — you choose what feels right</li>
+          <li>Enter clear and honest details</li>
+          <li>Suggestions are budget-aware</li>
+          <li>Links are for discovery</li>
+          <li>You choose what feels right</li>
         </ul>
       </div>
 
-      <button class="logout-btn" onclick="handleLogout()">Logout</button>
+      <button class="logout-btn" onclick="logout()">Logout</button>
     </aside>
 
-    <!-- CHAT PANEL -->
-    <section class="chat-panel">
-      <header class="chat-header">
-        Thoughtful gifting, made effortless
-      </header>
-
+    <!-- CHAT AREA -->
+    <section class="chat-area">
       <main id="chat" class="chat-stream"></main>
 
       <footer class="chat-composer">
@@ -56,13 +51,21 @@
 
   <script type="module" src="js/app.js"></script>
 
-  <!-- LOGOUT LOGIC -->
   <script>
-    function handleLogout() {
+    function logout() {
       localStorage.removeItem("giftwhisperer_user");
       window.location.href = "/index.html";
     }
-  </script>
 
+    const input = document.getElementById("userInput");
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+         e.preventDefault();
+         handleUserInput();
+      }
+  });
+
+  </script>
 </body>
 </html>
