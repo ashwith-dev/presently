@@ -145,7 +145,8 @@ body {
   border: 1px solid var(--border-soft);
   background: rgba(0, 0, 0, 0.35);
   color: var(--text-main);
-  font-size: 15px;
+  font-size: 16px;     
+  min-height: 56px; 
   outline: none;
   transition: border 0.25s ease;
 }
@@ -163,6 +164,8 @@ body {
   font-weight: 500;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 90px;   
+  height: 56px;
 }
 
 .chat-composer button:hover {
@@ -340,4 +343,22 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 40px 100px rgba(0,0,0,0.7);
   transition: all 0.4s ease;
+}
+
+.sidebar {
+  overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+}
+
+.sidebar img {
+  width: 200px;
+  margin-bottom: 12px;
 }
