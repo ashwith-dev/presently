@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Presently | Login</title>
-  
+
   <!-- Main Styles -->
-  <link rel="stylesheet" href="/css/style.css" />
-  
+  <link rel="stylesheet" href="css/style.css" />
+
   <!-- Firebase Compat SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
@@ -24,16 +23,29 @@
     </div>
 
     <!-- ================= LOGIN ================= -->
-    <form class="form-box login" onsubmit="return handleLoginSubmit(event)">
-
+    <div class="form-box login">
       <h2>Welcome Back</h2>
 
-      <input id="li-email" type="email" placeholder="Email" />
-      <input id="li-password" type="password" placeholder="Password" />
+      <input
+        id="li-email"
+        type="email"
+        placeholder="Email"
+        autocomplete="email"
+      />
 
-      <button class="primary-btn" onclick="gwLogin()">Sign in</button>
+      <input
+        id="li-password"
+        type="password"
+        placeholder="Password"
+        autocomplete="current-password"
+      />
 
-      <button type="submit" class="google-btn" onclick="gwGoogleLogin(this)">
+      <button onclick="gwLogin()">Sign in</button>
+
+      <button
+        class="google-btn"
+        onclick="gwGoogleLogin(this)"
+      >
         Continue with Google
       </button>
 
@@ -41,23 +53,39 @@
         New here?
         <a href="#" class="SignUpLink">Create an account</a>
       </p>
-    </form>
-
+    </div>
 
     <!-- ================= SIGN UP ================= -->
-    <form class="form-box register" onsubmit="return handleSignupSubmit(event)">
+    <div class="form-box register">
+      <h2>Create Account</h2>
 
-      <h2>Create account</h2>
+      <input
+        id="su-username"
+        type="text"
+        placeholder="Username"
+        autocomplete="username"
+      />
 
-      <input id="su-username" type="text" placeholder="Username" />
-      <input id="su-email" type="email" placeholder="Email" />
-      <input id="su-password" type="password" placeholder="Password" />
+      <input
+        id="su-email"
+        type="email"
+        placeholder="Email"
+        autocomplete="email"
+      />
 
-      <button type="submit" class="primary-btn" onclick="gwSignup()">
-        Create account
-      </button>
+      <input
+        id="su-password"
+        type="password"
+        placeholder="Password"
+        autocomplete="new-password"
+      />
 
-      <button type="submit" class="google-btn" onclick="gwGoogleLogin(this)">
+      <button onclick="gwSignup()">Create account</button>
+
+      <button
+        class="google-btn"
+        onclick="gwGoogleLogin(this)"
+      >
         Sign up with Google
       </button>
 
@@ -65,30 +93,12 @@
         Already a member?
         <a href="#" class="SignInLink">Sign in</a>
       </p>
-    </form>
+    </div>
 
   </div>
+
   <!-- Auth Logic -->
-  <script src="/js/auth.js"></script>
-
-  <script>
-   function handleLoginSubmit(e) {
-    e.preventDefault(); // ⛔ stop refresh
-    if (typeof gwLogin === "function") {
-      gwLogin();
-    }
-    return false;
-   }
-
-   function handleSignupSubmit(e) {
-    e.preventDefault(); // ⛔ stop refresh
-    if (typeof gwSignup === "function") {
-      gwSignup();
-    }
-    return false;
-   }
-</script>
-
+  <script src="js/auth.js"></script>
 
 </body>
 </html>
