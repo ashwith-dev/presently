@@ -73,7 +73,7 @@ async function signInWithGoogle() {
     await upsertUserDoc(res.user);
     
     // Use replace instead of href to prevent back button issues
-    window.location.replace("/app.html");
+    window.location.replace("./app.html");
   } catch (err) {
     if (err.code !== 'auth/popup-closed-by-user') {
       alert(err.message);
@@ -105,7 +105,7 @@ async function emailSignup() {
     await upsertUserDoc(res.user);
     
     // Use replace instead of href to prevent back button issues
-    window.location.replace("/app.html");
+    window.location.replace("./app.html");
   } catch (err) {
     alert(err.message);
     btn.disabled = false;
@@ -135,7 +135,7 @@ async function emailLogin() {
     await upsertUserDoc(res.user);
     
     // Use replace instead of href to prevent back button issues
-    window.location.replace("/app.html");
+    window.location.replace("./app.html");
   } catch (err) {
     alert(err.message);
     btn.disabled = false;
