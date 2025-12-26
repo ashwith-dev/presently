@@ -24,7 +24,8 @@
     </div>
 
     <!-- ================= LOGIN ================= -->
-    <div class="form-box login">
+    <form class="form-box login" onsubmit="return handleLoginSubmit(event)">
+
       <h2>Welcome Back</h2>
 
       <input id="li-email" type="email" placeholder="Email" />
@@ -32,7 +33,7 @@
 
       <button class="primary-btn" onclick="gwLogin()">Sign in</button>
 
-      <button type="button" class="google-btn" onclick="gwGoogleLogin(this)">
+      <button type="submit" class="google-btn" onclick="gwGoogleLogin(this)">
         Continue with Google
       </button>
 
@@ -40,21 +41,23 @@
         New here?
         <a href="#" class="SignUpLink">Create an account</a>
       </p>
-    </div>
+    </form>
+
 
     <!-- ================= SIGN UP ================= -->
-    <div class="form-box register">
+    <form class="form-box register" onsubmit="return handleSignupSubmit(event)">
+
       <h2>Create account</h2>
 
       <input id="su-username" type="text" placeholder="Username" />
       <input id="su-email" type="email" placeholder="Email" />
       <input id="su-password" type="password" placeholder="Password" />
 
-      <button type="button" class="primary-btn" onclick="gwSignup()">
+      <button type="submit" class="primary-btn" onclick="gwSignup()">
         Create account
       </button>
 
-      <button type="button" class="google-btn" onclick="gwGoogleLogin(this)">
+      <button type="submit" class="google-btn" onclick="gwGoogleLogin(this)">
         Sign up with Google
       </button>
 
@@ -62,18 +65,30 @@
         Already a member?
         <a href="#" class="SignInLink">Sign in</a>
       </p>
-    </div>
+    </form>
+
   </div>
   <!-- Auth Logic -->
   <script src="/js/auth.js"></script>
-  
+
   <script>
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-      }
-    });
- </script>
+   function handleLoginSubmit(e) {
+    e.preventDefault(); // ⛔ stop refresh
+    if (typeof gwLogin === "function") {
+      gwLogin();
+    }
+    return false;
+   }
+
+   function handleSignupSubmit(e) {
+    e.preventDefault(); // ⛔ stop refresh
+    if (typeof gwSignup === "function") {
+      gwSignup();
+    }
+    return false;
+   }
+</script>
+
 
 </body>
 </html>
