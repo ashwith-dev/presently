@@ -493,7 +493,6 @@ body {
 
   /* 5. SCROLL INDICATOR (Visual Hint) */
   .sidebar::after {
-    content: "Scroll to Chat ↓";
     display: block;
     margin-top: 30px;
     font-size: 13px;
