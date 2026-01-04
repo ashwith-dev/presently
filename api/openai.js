@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     }
 
     const prompt = `
-You are GiftWhisperer, an expert gifting assistant.
+You are Presently, an expert gifting assistant.
 
 User details:
 - Gender: ${data.gender}
@@ -40,6 +40,8 @@ FORMAT:
     - Brand + Model Name
 
 RULES:
+- STRICTLY RESPECT THE BUDGET: Do not suggest items that typically cost more than ₹${data.amount}.
+- Provide specific Brand and Model names for every suggestion within the budget.
 - Give with the product links
 - Give only the products which are under the given budget
 - Under the link give 2 best brand and product name suggestion

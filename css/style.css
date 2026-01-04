@@ -391,61 +391,46 @@ body {
 
 /* ==========================================================================
    MOBILE RESPONSIVENESS (Vertical Scroll Layout)
-   Copy and paste this ENTIRE BLOCK to the bottom of your css/style.css file.
-   It replaces the existing @media (max-width: 768px) block.
-   ========================================================================== */
+    ========================================================================== */
 
 @media (max-width: 768px) {
-  
-  /* 1. Global Page Settings: Enable Scrolling */
   html, body {
     overflow-y: auto !important;
     height: auto !important;
-    /* Optional: detailed snap scrolling for a premium feel */
     scroll-snap-type: y mandatory; 
     scroll-behavior: smooth;
   }
 
-  /* 2. Main Wrapper: Stack vertically instead of side-by-side */
   .chat-shell {
-    display: block !important;    /* Stack Mode */
-    height: auto !important;      /* Let content dictate height */
-    overflow: visible !important; /* Allow simple page scrolling */
+    display: block !important;   
+    height: auto !important;      
+    overflow: visible !important; 
     border: none;
     border-radius: 0;
     width: 100%;
     max-width: 100%;
   }
 
-  /* 3. SECTION 1: LANDING SCREEN (Expected Height: 100vh) */
   .sidebar {
-    /* Full viewport height for the first screen */
     height: 100vh;
-    min-height: 600px; /* Prevent squashing on tiny screens */
+    min-height: 600px; 
     width: 100%;
-    
-    /* Center everything */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    
-    /* Styling */
     padding: 40px 24px;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background: transparent;
-    
-    /* Snap Logic */
     scroll-snap-align: start;
     position: relative;
   }
 
-  /* VISIBILITY: Force show the hidden desktop elements */
   .sidebar > p, 
   .sidebar .rules {
-    display: block !important; /* Override display: none */
+    display: block !important; 
     margin-bottom: 24px;
     background: transparent;
     border: none;
@@ -453,21 +438,18 @@ body {
     max-width: 90%;
   }
 
-  /* Logo Styling */
   .sidebar img {
-    width: 150px;       /* Larger, prominent logo */
+    width: 150px;       
     max-width: 60%;
     margin: 0 0 32px 0;
   }
 
-  /* Text Styling */
   .sidebar p {
     font-size: 15px;
     line-height: 1.6;
     color: #cbd5e1;
   }
 
-  /* Rules List Styling */
   .rules ul {
     list-style: none;
     padding: 0;
@@ -481,7 +463,6 @@ body {
     color: #fff;
   }
 
-  /* 4. LOGOUT BUTTON (Placed at bottom of First Screen) */
   .logout-btn {
     margin-top: 20px;
     width: auto;
@@ -491,7 +472,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  /* 5. SCROLL INDICATOR (Visual Hint) */
   .sidebar::after {
     display: block;
     margin-top: 30px;
@@ -507,26 +487,23 @@ body {
     50% { transform: translateY(5px); }
   }
 
-  /* 6. SECTION 2: CHAT INTERFACE (Expected Height: 100vh) */
   .chat-area {
     height: 100vh;
     width: 100%;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    background: var(--card-bg); /* Match app theme */
+    background: var(--card-bg); 
   }
 
-  /* Message Area needs to flex properly */
   .chat-stream {
     flex: 1;
     overflow-y: auto;
     padding: 20px;
   }
 
-  /* Input Area adjustments */
   .chat-composer {
     padding: 16px;
-    background: rgba(20, 20, 30, 0.95); /* Slightly clearer background */
+    background: rgba(20, 20, 30, 0.95); 
   }
 }
