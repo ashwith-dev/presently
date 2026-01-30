@@ -4,12 +4,10 @@ export default async function handler(req, res) {
       return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const apiKey = process.env.OPENAI_API_KEY;
-
-    console.log("OPENAI KEY PRESENT?", !!apiKey);
+    const apiKey = process.env.GROQ_API_KEY;
 
     if (!apiKey) {
-      return res.status(500).json({ error: "OPENAI_API_KEY missing" });
+      return res.status(500).json({ error: "GROQ_API_KEY missing" });
     }
 
     const body =
@@ -21,6 +19,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Invalid payload" });
     }
 
+    // ✅ YOUR PROMPT — unchanged
     const prompt = `
 You are Presently, an expert gifting assistant.
 
@@ -63,8 +62,9 @@ RULES:
 - NEVER guess product IDs or use /dp/ links  
 `;
 
-    const openaiRes = await fetch(
-      "https://api.openai.com/v1/chat/completions",
+    // ✅ Groq call instead of OpenAI
+    const groqRes = await fetch(
+      "https://api.groq.com/openai/v1/chat/completions",
       {
         method: "POST",
         headers: {
@@ -72,28 +72,41 @@ RULES:
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          model: "gpt-4o-mini",
+          model: "llama-3.1-8b-instant",
           messages: [
-            { role: "system", content: "You are a helpful gifting assistant." },
-            { role: "user", content: prompt }
+            {
+              role: "system",
+              content: "You are a helpful gifting assistant."
+            },
+            {
+              role: "user",
+              content: prompt
+            }
           ],
           temperature: 0.6
         })
       }
     );
 
-    if (!openaiRes.ok) {
-      const txt = await openaiRes.text();
-      console.error("OpenAI error:", txt);
-      return res.status(500).json({ error: "OpenAI API error", details: txt });
+    if (!groqRes.ok) {
+      const txt = await groqRes.text();
+      console.error("Groq error:", txt);
+      return res.status(500).json({
+        error: "Groq API error",
+        details: txt
+      });
     }
 
-    const json = await openaiRes.json();
+    const json = await groqRes.json();
     const answer = json.choices?.[0]?.message?.content || "";
 
     res.status(200).json({ success: true, answer });
+
   } catch (err) {
     console.error("SERVER ERROR:", err);
-    res.status(500).json({ error: "Server crash", details: err.message });
+    res.status(500).json({
+      error: "Server crash",
+      details: err.message
+    });
   }
 }

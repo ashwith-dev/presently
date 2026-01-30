@@ -84,7 +84,7 @@ window.handleUserInput = async () => {
 /* ================= GROQ PROXY CALL ================= */
 async function fetchGiftSuggestions() {
   try {
-    const res = await fetch("/api/openai", {
+    const res = await fetch("/api/groqai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
